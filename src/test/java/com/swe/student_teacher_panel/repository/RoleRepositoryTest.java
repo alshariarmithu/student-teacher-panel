@@ -10,10 +10,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.swe.student_teacher_panel.entity.Role;
 
 @SpringBootTest
+@ActiveProfiles("test")
 class RoleRepositoryTest {
 
     @Autowired

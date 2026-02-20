@@ -16,8 +16,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.swe.student_teacher_panel.entity.Role;
 import com.swe.student_teacher_panel.entity.User;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
+@ActiveProfiles("test")
 class UserRepositoryTest {
 
     @Autowired
