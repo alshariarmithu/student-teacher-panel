@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h2>Edit Student</h2>
+      <form
+        th:action="@{/teacher/edit-student/{id}(id=${student.id})}"
+        th:object="${student}"
+        method="post"
+      >
+        <input
+          type="text"
+          th:field="*{username}"
+          placeholder="Username"
+          required
+        />
+        <input
+          type="password"
+          th:field="*{password}"
+          placeholder="Password (leave blank if no change)"
+        />
+        <button type="submit">Update Student</button>
+      </form>
+      <a href="/teacher/students">⬅ Back</a>
+    </div>
+  </body>
+</html>

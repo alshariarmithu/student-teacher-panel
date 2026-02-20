@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="card" style="width: 600px">
+      <h2>All Students</h2>
+      <a href="/teacher/add-student"> Add Student</a>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Actions</th>
+        </tr>
+        <tr th:each="student : ${students}">
+          <td th:text="${student.id}"></td>
+          <td th:text="${student.username}"></td>
+          <td>
+            <a th:href="@{/teacher/edit-student/{id}(id=${student.id})}"
+              >Edit</a
+            >
+            <form
+              th:action="@{/teacher/delete/{id}(id=${student.id})}"
+              method="post"
+              style="display: inline"
+            >
+              <button style="background: #ef4444">Delete</button>
+            </form>
+          </td>
+        </tr>
+      </table>
+      <a href="/dashboard">⬅ Back</a>
+    </div>
+  </body>
+</html>

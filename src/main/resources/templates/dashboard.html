@@ -1,0 +1,27 @@
+<!doctype html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="card dashboard">
+      <h2>Dashboard</h2>
+
+      <p>Welcome, <b sec:authentication="name"></b></p>
+
+      <div sec:authorize="hasRole('TEACHER')">
+        <a href="/teacher/students">Manage Students</a>
+      </div>
+
+      <div sec:authorize="hasRole('STUDENT')">
+        <a href="/student/profile">My Profile</a>
+      </div>
+
+      <a href="/logout"> Logout</a>
+    </div>
+  </body>
+</html>
